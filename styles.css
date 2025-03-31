@@ -106,7 +106,7 @@ nav {
 /* Slide-content styles */
 .slide-content {
     position: absolute;
-    top: 80%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
