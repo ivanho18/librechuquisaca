@@ -91,10 +91,13 @@ nav {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+	z-index: 1;
+	pointer-events: none;
 }
 
 .slide.active {
     opacity: 1;
+	pointer-events: auto;
 }
 
 .slide img {
@@ -116,6 +119,12 @@ nav {
     padding: 1.5rem;
     border-radius: 5px;
     width: 50%;
+	z-index: 3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
 }
 
 /* Ajustes responsive styles para slide-content */
@@ -123,6 +132,17 @@ nav {
     .slide-content {
         max-width: 90%;
         padding: 1rem;
+		width: 90%;
+		left: 50%;
+		transform: translateX(-50%);
+		gap: 10px;
+    }
+	    .slide-content h2 {
+        font-size: 1.5rem;
+        /* margin-bottom: 0; si gap es suficiente */
+    }
+    .slide-content p {
+        /* margin-bottom: 0; si gap es suficiente */
     }
 }
 
@@ -130,6 +150,11 @@ nav {
     .slide-content {
         width: 95%;
         padding: 0.8rem;
+		top: auto;
+		bottom: 5%;
+		transform: translateX(-50%);
+		gap: 8px;
+		
     }
 
     .slide-content h2 {
@@ -141,8 +166,14 @@ nav {
     }
 
     .slide-content .btn {
-        padding: 0.5rem 1rem;
+		padding: 0.5rem 1rem;
         font-size: 0.8rem;
+        width: auto; /* Permitir que el botón se ajuste al contenido/espacio */
+        max-width: 100%; /* Evitar que el botón desborde el contenedor */
+        white-space: normal; /* Permitir que el texto del botón se envuelva */
+        text-align: center; /* Centrar el texto dentro del botón */
+        /* Eliminar margin-top si el gap del flexbox ya maneja el espacio */
+        margin-top: 0;
     }
 }
 
@@ -380,15 +411,31 @@ footer {
 }
 
 /* Responsive Layout */
-@media (min-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
+/* Add centering for contact-section in mobile view */
+@media (max-width: 768px) {
+  .contact-section {
+    width: 95%; /* Adjust width for mobile */
+    margin: 0 auto; /* Center the section */
+    padding: 30px 15px; /* Adjust padding for smaller screens */
   }
 
-  .whatsapp-qr {
-    padding-left: 20px;
-    border-left: 1px solid #eee;
+  .contact-grid {
+      gap: 20px; /* Reduce gap between form and QR in mobile */
   }
+
+  .contact-form {
+      padding: 20px; /* Adjust padding inside form card */
+  }
+
+  .qr-container {
+      padding: 20px; /* Adjust padding inside QR card */
+  }
+
+    .whatsapp-qr {
+        padding-left: 0; /* Remove left padding on mobile */
+        border-left: none; /* Remove left border on mobile */
+    }
+
 }
 
 /* Eventos*/
