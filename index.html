@@ -1,587 +1,106 @@
-/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    color: #004e9b;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Header styles */
-header {
-    background-color: #fff;
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    height: 80px;
-    width: auto;
-}
-
-.logo img {
-    height: 100%;
-	padding-left: 20px;
-}
-
-/* Navigation styles */
-nav {
-    display: flex;
-    align-items: center;
-	padding-right: 20px;
-
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 2rem;
-}
-
-.nav-links a {
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #e60000;
-	text-decoration: underline;
-}
-
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-/* Slideshow styles */
-.slideshow {
-    position: relative;
-    width: 100%;
-    height: 60vh;
-    overflow: hidden;
-}
-
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-	z-index: 1;
-	pointer-events: none;
-}
-
-.slide.active {
-    opacity: 1;
-	pointer-events: auto;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Slide-content styles */
-.slide-content {
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    max-width: 80%;
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
-    border-radius: 5px;
-    width: 50%;
-	z-index: 3;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 15px;
-}
-
-/* Ajustes responsive styles para slide-content */
-@media (max-width: 768px) {
-    .slide-content {
-        max-width: 90%;
-        padding: 1rem;
-		width: 90%;
-		left: 50%;
-		transform: translateX(-50%);
-		gap: 10px;
-    }
-	    .slide-content h2 {
-        font-size: 1.5rem;
-        /* margin-bottom: 0; si gap es suficiente */
-    }
-    .slide-content p {
-        /* margin-bottom: 0; si gap es suficiente */
-    }
-}
-
-@media (max-width: 576px) {
-    .slide-content {
-        width: 95%;
-        padding: 0.8rem;
-		top: auto;
-		bottom: 5%;
-		transform: translateX(-50%);
-		gap: 8px;
-		
-    }
-
-    .slide-content h2 {
-        font-size: 1.2rem;
-    }
-
-    .slide-content p {
-        font-size: 0.9rem;
-    }
-
-    .slide-content .btn {
-		padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-        width: auto; /* Permitir que el botón se ajuste al contenido/espacio */
-        max-width: 100%; /* Evitar que el botón desborde el contenedor */
-        white-space: normal; /* Permitir que el texto del botón se envuelva */
-        text-align: center; /* Centrar el texto dentro del botón */
-        /* Eliminar margin-top si el gap del flexbox ya maneja el espacio */
-        margin-top: 0;
-    }
-}
-
-.slide-content h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.slide-content .btn {
-    display: inline-block;
-    background-color: #e60000;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    font-weight: 600;
-    margin-top: 1rem;
-    transition: background-color 0.3s;
-}
-
-.slide-content .btn:hover {
-    background-color: #023e8a;
-}
-
-/* Main content styles */
-main {
-    padding: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.content {
-    flex: 1;
-    min-width: 70%;  /* Takes minimum 40% width */
-    max-width: 600px; /* Maximum width constraint */
-    padding: 1rem;
-}
-
-.content h1,
-.content b {
-	color: #e60000;
-
-}
-
-
-aside {
-    width: 300px;
-    min-width: 250px;
-}
-
-.aside-card {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.aside-card h3 {
-    margin-bottom: 1rem;
-    color: #e60000;
-}
-
-.aside-card a {
-
-	font-weight: bold;
-}
-
-/* Footer styles */
-footer {
-    background-color:#004e9b;
-    color: white;
-    padding: 2rem;
-    text-align: center;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
-.social-icons a {
-    font-size: 1.5rem;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #0077b6;
-}
-
-/* Responsive styles */
-@media (max-width: 992px) {
-    .slide-content h2 {
-        font-size: 1.5rem;
-    }
-
-    aside {
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-        transform: translateY(-150%);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .nav-links.active {
-        transform: translateY(0);
-    }
-
-    .nav-links li {
-        margin: 0.5rem;
-	}
-}
-
-/* Contact form */
-
-
-.contact-section {
-  padding: 60px 0;
-  background: #f9f9f9;
-  width: 75%;
-}
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-  margin-top: 30px;
-}
-
-.contact-form {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.container h2 {
-
- color: #e60000;
-
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.form-group textarea {
-  min-height: 150px;
-}
-
-.submit-btn {
-  background: #25D366; /* WhatsApp green */
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s;
-}
-
-.submit-btn:hover {
-  background: #128C7E;
-}
-
-.whatsapp-qr {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.qr-container {
-  text-align: center;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.qr-container img {
-  max-width: 200px;
-  height: auto;
-  margin-bottom: 20px;
-
-}
-
-.whatsapp-btn {
-  display: inline-block;
-  background: #25D366;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-.whatsapp-btn i {
-  margin-right: 8px;
-}
-
-/* Responsive Layout */
-/* Add centering for contact-section in mobile view */
-@media (max-width: 768px) {
-  .contact-section {
-    width: 95%; /* Adjust width for mobile */
-    margin: 0 auto; /* Center the section */
-    padding: 30px 15px; /* Adjust padding for smaller screens */
-  }
-
-  .contact-grid {
-      gap: 20px; /* Reduce gap between form and QR in mobile */
-  }
-
-  .contact-form {
-      padding: 20px; /* Adjust padding inside form card */
-  }
-
-  .qr-container {
-      padding: 20px; /* Adjust padding inside QR card */
-  }
-
-    .whatsapp-qr {
-        padding-left: 0; /* Remove left padding on mobile */
-        border-left: none; /* Remove left border on mobile */
-    }
-
-}
-
-/* Eventos*/
-
-.event-container {
-	color: #fff;
-	max-width: 900px;
-	margin: 1rem;
-}
-.event-container h1 {
-	margin-bottom: 2rem;
-	}
-
-.event-list {
-	color: #000;
-}
-
-.event-list .item {
-	background-color: #fff;
-	padding: 1.25rem;
-	margin-bottom: 1rem;
-	display: grid;
-	grid-template-columns: 1fr 4fr 1fr;
-	gap: 1.5rem;
-	border-radius: 1rem;
-}
-
-.event-list .item .date {
-	background-color: #4a8df2;
-	color: #fff;
-	padding: 1rem;
-	text-align: center;
-	border-radius: 0.5rem;
-}
-
-.event-list .item .date .day {
-	font-size: 0.9rem;
-
-}
-
-.event-list .item .date .time {
-	font-size: 1.15rem;
-	font-weight: bold;
-
-}
-.event-list .item .name h2 {
-	margin-bottom: 0.5rem;
-
-}
-
-.event-list .item .add-to-calendar {
-	cursor: pointer;
-	background-color: #000;
-	color: #fff;
-	padding: 1rem;
-	text-wrap: nowrap;
-	align-self: start;
-	border: 0;
-	border-radius: 0.5rem;
-	transition: all 200ms ease;
-
-}
-
-@media (max-width: 768px) {
-	.event-list {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1rem;
-	}
-
-	.event-list .item .date {
-		height: min-content;
-	}
-
-	.event-list .item .name h2 {
-		grid-column: 1 / -1;
-
-	}
-}
-@media (max-width: 600px) {
-	.event-list {
-		grid-template-columns: 1fr;
-
-	}
-}
-
-/* Noticias */
-.content h1 {
-	padding-bottom: 25px;
-	padding-left: 70px;
-
-}
-.news-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .news-item {
-            border-bottom: 1px solid #ddd;
-            padding: 15px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .news-item:last-child {
-            border-bottom: none;
-        }
-        .news-content {
-            flex: 1;
-            min-width: 250px;
-        }
-        .news-content h2 {
-            font-size: 18px;
-            margin: 0;
-            color: #333;
-        }
-        .news-content p {
-            font-size: 14px;
-            margin: 5px 0;
-            color: #666;
-        }
-
-		.news-content a {
-			text-decoration: underline;
-			font-weight: bold;
-		}
-        .news-img {
-            width: 100px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        @media (max-width: 768px) {
-            .news-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .news-img {
-                width: 100%;
-                height: auto;
-                max-height: 150px;
-                margin-top: 10px;
-            }
-        }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="DPm8VBB8vZHLGiF7wAa1MBxW2Vx7Q8lP25KZL82yBtc" />
+	<title>Tuto Quiroga 2025 | Libre Chuquisaca - Propuesta presidencial para Bolivia</title>
+    <meta name="description" content="Conoce la visión de Tuto Quiroga y la agrupación Libre Chuquisaca para transformar Bolivia. Elecciones 2025, propuestas, noticias y más.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="logo2.png" alt="logo libre chuquisaca" width="200" height="200"></a>
+        </div>
+
+        <nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nuestra-causa.html">Nuestra Causa</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="unete.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="slideshow">
+            <div class="slide active">
+                <img src="candidate9.jpg" alt="tuto lider">
+                <div class="slide-content">
+                    <h2>UN FUTURO LO CONSTRUIMOS JUNTOS</h2>
+                    <p>Descubre como hacer la diferencia</p>
+                    <a href="unete.html" class="btn">Únete a la Causa</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="candidate2.jpg" alt="tuto saludo">
+                <div class="slide-content">
+                    <h2>COMPROMISO POR EL BIEN COMUN</h2>
+                    <p>La gran un líder se mide por su honestidad y compromiso con el bien común</p>
+                    <a href="unete.html" class="btn">Únete a la Causa</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="candidate10.jpeg" alt="tuto esperanza">
+                <div class="slide-content">
+                    <h2>UN NUEVO FUTURO</h2>
+                    <p>Junto a nuestros jóvenes</p>
+                    <a href="unete.html" class="btn">Únete a la Causa</a>
+                </div>
+            </div>
+        </section>
+
+        <article class="content">
+            <h1>NUESTRA LUCHA POR SALVAR BOLIVIA</h1>
+			<br>
+            <h3>Nuestra propuesta de gobierno para las elecciones de 2025 se basa en cuatro pilares clave:</h3>
+			<br>
+			<p><b>Primero</b>, impulsar reformas constitucionales para fortalecer la democracia y garantizar una verdadera separación de poderes.</p>
+			<br>
+			<p><b>Segundo</b>, promover la privatización parcial de algunas empresas públicas para mejorar su eficiencia y atraer inversión privada.</p>
+			<br>
+			<p><b>Tercero</b>, gestionar financiamiento internacional, incluyendo 12.000 millones de dólares del FMI y otros organismos, para estabilizar</p>
+			<p>la economía y renegociar la deuda externa.</p>
+			<br>
+			<p><b>Finalmente</b>, reactivar sectores estratégicos como el gas y el litio, convirtiéndolos en motores de crecimiento y desarrollo para Bolivia.</p>
+
+        </article>
+
+        <aside>
+            <div class="aside-card">
+                <h3>Noticias</h3>
+                <p>Enterate de las Últimas Noticias .</p>
+                <a href="noticias.html">Leer Más →</a>
+            </div>
+            <div class="aside-card">
+                <h3>Próximo Eventos</h3>
+                <p>Gran Marcha Por la Libertad.</p>
+                <a href="eventos.html">Ver Eventos Futuros →</a>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Todos Con Tuto. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/share/12EEeRLWwmJ/"><i class="fab fa-facebook"></i></a>
+            <a href="https://x.com/tutoquiroga"><i class="fa-solid fa-x"></i></a>
+            <a href="https://www.instagram.com/tutoquiroga?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@tutoquirogar?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
