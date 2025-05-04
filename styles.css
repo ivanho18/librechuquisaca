@@ -619,3 +619,25 @@ footer {
                 margin-top: 10px;
             }
         }
+		
+
+/* Gracias*/
+
+.return-link {
+    text-decoration: underline; /* Siempre subrayado */
+    color: red; /* Color del texto rojo */
+    font-weight: bold; /* Para que el texto sea negrita, como en los botones btn */
+    /* Asegurarse de que no herede estilos de botón no deseados */
+    display: inline-block; /* Para permitir margin/padding si fuera necesario, o 'inline' */
+    padding: 0; /* Remover padding de botón */
+    background-color: transparent; /* Remover fondo de botón */
+    border-radius: 0; /* Remover borde redondeado de botón */
+    margin-top: 1rem; /* Mantener un margen superior si se desea, similar a como estaba el botón */
+    transition: color 0.3s ease-in-out; /* Transición suave para el color en hover */
+}
+
+.return-link:hover {
+    text-decoration: underline; /* Mantener el subrayado en hover si se desea */
+    color: #e60000; /* Cambiar ligeramente el color en hover, por ejemplo, a un rojo más brillante o el color principal */
+    /* O si prefieres el color azul primario al pasar el ratón: color: #004e9b; */
+}
