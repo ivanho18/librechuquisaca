@@ -3,93 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unete a la causa</title>
-    <!-- Google Fonts - Montserrat -->
+   	<title>Tuto Quiroga 2025 | Libre Chuquisaca - Únete / Contacto</title>
+    <meta name="description" content="Conoce la visión de Tuto Quiroga y la agrupación Libre Chuquisaca para transformar Bolivia. Elecciones 2025, propuestas, noticias y más.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header Section -->
     <header>
         <div class="logo">
-            <a href="index.html"><img src="logo2.png" alt="Company Logo" width="200" height="200"></a>
+            <a href="index.html"><img src="logo2.png" alt="libre Chuquisaca escudo" width="200" height="200"></a>
         </div>
-        
+
         <nav>
             <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="nuestra-causa.html">Nuestra Causa</a></li>
-        <li><a href="eventos.html">Eventos</a></li>
-        <li><a href="noticias.html">Noticias</a></li>  
-        <li><a href="unete.html">Contacto</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nuestra-causa.html">Nuestra Causa</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="unete.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
-    
-    <!-- Main Content Section -->
+
     <main>
-        <!-- Slideshow Section -->
         <section class="slideshow">
             <div class="slide active">
-                <img src="candidate1.jpg" alt="Slide 1">
+                <img src="candidate1.jpg" alt="lideres de bolivia y chuquisaca">
                 <div class="slide-content">
                     <h2>UNETE PARA CONSTRUIR UN FUTURO JUNTOS</h2>
                     <p>Juntos haremos la Diferencia</p>
-                    
                 </div>
             </div>
-            
         </section>
-        
-        <!-- Main Content and Aside Columns -->
-		 <section class="contact-section">
+
+        <section class="contact-section">
 		  <div class="container">
 			<h2>UNETE A LA CAUSA</h2>
 			<p>Contactanos para saber como unirte a la causa.</p>
 			<div class="contact-grid">
-			  <!-- Contact Form -->
 			  <div class="contact-form">
-				<form id="contactForm">
+                  <form id="contactForm" action="https://formspree.io/f/xjkwynyp" method="POST">
 				  <div class="form-group">
-					<input type="text" id="name" placeholder="Nombre" required>
+					<label for="name" class="visually-hidden">Nombre:</label>
+					<input type="text" id="name" name="Nombre" placeholder="Nombre" required>
 				  </div>
 				  <div class="form-group">
-					<input type="email" id="email" placeholder="Tu correo Electrónico." required>
+					<label for="email" class="visually-hidden">Tu correo Electrónico:</label>
+					<input type="email" id="email" name="Correo Electrónico" placeholder="Tu correo Electrónico." required>
 				  </div>
 				  <div class="form-group">
-					<textarea id="message" placeholder="Deja tu mensaje," required></textarea>
+					<label for="message" class="visually-hidden">Deja tu mensaje:</label>
+					<textarea id="message" name="Mensaje" placeholder="Deja tu mensaje," required></textarea>
 				  </div>
 				  <button type="submit" class="submit-btn">Enviar Mensaje</button>
 				</form>
 			  </div>
 
-			  <!-- WhatsApp QR -->
-			<div class="contact-form">
-				<form id="contactForm">
+			  <div class="contact-form">
 				<h2>ESTAMOS EN WHATSAPP</h2>
 				  <div class="whatsapp-qr">
 				<div class="qr-container">
-				  <img src="celu.png" alt="Scan to contact us on WhatsApp">
-				  <p>Ecanea para contactarnos</p>
-				  <a href="https://wa.me/yourphonenumber" class="whatsapp-btn">
+				  <img src="whatsapp2.png" alt="Escanea codigo WhatsApp">
+				  <p>Escanea para contactarnos</p>
+				  <a href="https://chat.whatsapp.com/DTxMRFHGqQR8EkZPrbghs5" class="whatsapp-btn">
 					<i class="fab fa-whatsapp"></i> Abre Whatsapp
 				  </a>
 				</div>
 			  </div>
-			  </form>
 			</div>
 		  </div>
 		  </div>
 		</section>
-        
+
         <aside>
             <div class="aside-card">
                 <h3>Noticias</h3>
@@ -103,8 +94,7 @@
             </div>
         </aside>
     </main>
-    
-    <!-- Footer Section -->
+
     <footer>
         <p>&copy; 2025 Todos Con Tuto. Todos los derechos reservados.</p>
         <div class="social-icons">
@@ -116,7 +106,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
