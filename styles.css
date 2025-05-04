@@ -92,12 +92,13 @@ nav {
     opacity: 0;
     transition: opacity 1s ease-in-out;
 	z-index: 1;
-	pointer-events: none;
+	pointer-events: none; /* Crucial: Deshabilita eventos del ratón en diapositivas inactivas */
 }
 
 .slide.active {
     opacity: 1;
-	pointer-events: auto;
+	z-index: 2; /* Asegurar que la diapositiva activa esté por encima */
+	pointer-events: auto; /* Crucial: Habilita eventos del ratón en la diapositiva activa */
 }
 
 .slide img {
@@ -119,12 +120,15 @@ nav {
     padding: 1.5rem;
     border-radius: 5px;
     width: 50%;
-	z-index: 3;
+	z-index: 3; /* Asegurar que el contenido esté por encima de la imagen */
+	/* Usar Flexbox para la distribución interna del contenido en móvil */
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 15px;
+	align-items: center; /* Centra horizontalmente los elementos hijos */
+	justify-content: center; /* Centra verticalmente si hay espacio */
+	gap: 15px; /* Espacio entre h2, p, y btn */
+    /* pointer-events está controlado por el padre .slide */
+    /* pointer-events: auto; */
 }
 
 /* Ajustes responsive styles para slide-content */
@@ -132,10 +136,13 @@ nav {
     .slide-content {
         max-width: 90%;
         padding: 1rem;
-		width: 90%;
+		width: 90%; /* Dar más espacio al contenedor en móvil */
 		left: 50%;
 		transform: translateX(-50%);
-		gap: 10px;
+		/* Ajustar la posición vertical si 65% es muy alto */
+		/* top: auto; */
+		/* bottom: 10%; */
+		gap: 10px; /* Ajustar el espacio entre elementos en tablets/móviles */
     }
 	    .slide-content h2 {
         font-size: 1.5rem;
@@ -148,13 +155,13 @@ nav {
 
 @media (max-width: 576px) {
     .slide-content {
-        width: 95%;
+        width: 95%; /* Dar aún más espacio en pantallas pequeñas */
         padding: 0.8rem;
-		top: auto;
-		bottom: 5%;
+		top: auto; /* Posicionar desde abajo es común en móviles para contenido de slideshow */
+		bottom: 5%; /* Ajusta este valor según necesites */
 		transform: translateX(-50%);
-		gap: 8px;
-		
+		gap: 8px; /* Ajustar el espacio en pantallas muy pequeñas */
+
     }
 
     .slide-content h2 {
@@ -191,6 +198,8 @@ nav {
     font-weight: 600;
     margin-top: 1rem;
     transition: background-color 0.3s;
+    /* pointer-events está controlado por el padre .slide */
+    /* pointer-events: auto; */
 }
 
 .slide-content .btn:hover {
@@ -294,6 +303,7 @@ footer {
         box-shadow: 0 5px 5px rgba(0,0,0,0.1);
         transform: translateY(-150%);
         transition: transform 0.3s ease-in-out;
+		z-index: 50; /* Asegurar que el menú desplegable esté por encima */
     }
 
     .nav-links.active {
@@ -306,6 +316,19 @@ footer {
 }
 
 /* Contact form */
+
+/* New CSS class for visually hidden elements (accessibility) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    white-space: nowrap; /* Añadido para asegurar que el texto no se rompa */
+}
 
 
 .contact-section {
@@ -411,6 +434,17 @@ footer {
 }
 
 /* Responsive Layout */
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .whatsapp-qr {
+    padding-left: 20px;
+    border-left: 1px solid #eee;
+  }
+}
+
 /* Add centering for contact-section in mobile view */
 @media (max-width: 768px) {
   .contact-section {
