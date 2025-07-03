@@ -357,7 +357,12 @@ footer {
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   text-align: center;
 }
-
+.qr-container {
+  display: flex; /* Makes it a flex container */
+  flex-direction: column; /* Stacks children vertically */
+  align-items: center; /* Centers items horizontally within the column */
+  justify-content: center; /* Optional: Centers items vertically if qr-container has a defined height */
+}
 .container h2 {
 
  color: #e60000;
